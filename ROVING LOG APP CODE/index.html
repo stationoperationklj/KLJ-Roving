@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Train Roving — QR</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="top-right">
+    <button id="btn-logout" title="Log out">Log out</button>
+  </div>
+
+  <main id="app" class="container">
+    <!-- LOGIN -->
+    <section id="login-screen" class="card center">
+      <h1>Train Roving Login</h1>
+      <input id="username" placeholder="Username" autocapitalize="off" />
+      <input id="password" placeholder="Password" type="password" />
+      <button id="btn-login">Login</button>
+      <p id="login-error" class="error"></p>
+    </section>
+
+    <!-- SHIFT / ROVING -->
+    <section id="shift-screen" class="card hidden">
+      <header class="topbar">
+        <div id="profile-mini" class="profile-mini"></div>
+      </header>
+
+      <div class="content">
+        <h2 id="today-date"></h2>
+
+        <div class="shift-buttons">
+          <button id="btn-morning" class="shift-btn">Morning</button>
+          <button id="btn-afternoon" class="shift-btn">Afternoon</button>
+        </div>
+
+        <div id="shift-settings" class="hidden">
+          <label>Shift Start
+            <input id="shift-start" type="time" />
+          </label>
+          <label>Shift End
+            <input id="shift-end" type="time" />
+          </label>
+          <button id="btn-start-roving" disabled>Start Roving</button>
+        </div>
+
+        <div id="roving-area" class="roving-card hidden">
+          <h3 id="roving-meta"></h3>
+
+          <div id="current-journey" class="journey-card">
+            <div id="journey-info">No active roving.</div>
+            <div class="journey-actions">
+              <button id="btn-timein">Time In (Scan QR)</button>
+              <button id="btn-timeout" disabled>Time Out (Scan)</button>
+              <button id="btn-add" class="secondary hidden">Add Roving</button>
+            </div>
+          </div>
+
+          <h4>Rovings this shift</h4>
+          <ul id="roving-list" class="journey-list"></ul>
+
+          <p id="status-msg" class="muted"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Logout confirmation modal -->
+    <div id="logout-modal" class="modal hidden">
+      <div class="modal-card">
+        <p>Are you sure you want to logout?</p>
+        <div class="modal-actions">
+          <button id="logout-cancel" class="secondary">Cancel</button>
+          <button id="logout-ok">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QR overlay -->
+    <div id="qr-overlay" class="overlay hidden">
+      <div class="qr-modal">
+        <div id="qr-reader" style="width:100%"></div>
+        <button id="btn-qr-cancel">Cancel</button>
+      </div>
+    </div>
+
+    <audio id="reminder-audio">
+      <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=" />
+    </audio>
+  </main>
+
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/minified/html5-qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

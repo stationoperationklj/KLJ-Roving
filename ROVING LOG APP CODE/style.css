@@ -1,0 +1,38 @@
+:root{
+  --bg:#f4f7fb;
+  --card:#fff;
+  --accent:#0b61a4;
+  --muted:#666;
+  --radius:12px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+body{background:var(--bg);padding:12px;position:relative;overflow-x:hidden}
+.container{max-width:480px;margin:12px auto 80px auto}
+#top-right{position:fixed;right:12px;top:12px;z-index:20}
+#btn-logout{background:#fff;border:1px solid #e6eef6;padding:8px 10px;border-radius:8px;cursor:pointer}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 18px rgba(10,20,40,0.06);padding:18px}
+.center{text-align:center}
+.hidden{display:none}
+.error{color:#c0392b;margin-top:8px}
+.muted{color:var(--muted);font-size:0.9rem}
+.shift-buttons{display:flex;gap:8px;margin:12px 0}
+.shift-btn{flex:1;padding:12px;border-radius:10px;border:1px solid #e6eef6;background:#fff}
+.shift-btn.active{background:var(--accent);color:#fff}
+input, select, button{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #e6eef6;font-size:1rem}
+button{background:var(--accent);color:#fff;border:none;cursor:pointer}
+button.secondary{background:#e9eef6;color:#0b61a4}
+.topbar{display:flex;justify-content:flex-end;align-items:center;margin-bottom:6px}
+.profile-mini{background:rgba(11,97,164,0.08);padding:8px;border-radius:8px;font-weight:600}
+.roving-card{margin-top:12px;padding:12px;border-radius:10px;border:1px solid #edf4fb}
+.journey-card{background:#fff;padding:10px;border-radius:8px;margin-bottom:12px}
+.journey-actions{display:flex;gap:8px;flex-wrap:wrap}
+.journey-actions button{flex:1}
+.journey-list{list-style:none;padding:0;margin:8px 0 16px 0}
+.journey-list li{background:#f8fbff;border-radius:8px;padding:10px;margin:6px 0;border:1px solid #edf4fb;font-size:0.95rem}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:50}
+.qr-modal{width:94%;max-width:520px;background:#fff;padding:12px;border-radius:10px}
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);z-index:60}
+.modal-card{background:#fff;padding:16px;border-radius:10px;max-width:320px;text-align:center}
+.modal-actions{display:flex;gap:8px;justify-content:center;margin-top:12px}
+@media (max-width:420px){ .container{padding:6px} }
